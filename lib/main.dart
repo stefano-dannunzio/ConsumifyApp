@@ -29,8 +29,6 @@ class MainApp extends StatelessWidget {
       routes: {
         "home": (context) => const HomeScreen(),
         "songList": (context) => const SonglistScreen(),
-        "singleSong": (context) => SingleSongScreen(),
-        "testList": (context) => const TestList(),
       },
     );
   }

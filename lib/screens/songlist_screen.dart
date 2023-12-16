@@ -1,6 +1,5 @@
-import 'dart:convert';
+import 'package:consumify/screens/single_song_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class SonglistScreen extends StatelessWidget {
   const SonglistScreen({Key? key}) : super(key: key);
@@ -12,10 +11,19 @@ class SonglistScreen extends StatelessWidget {
         title: const Text('Lista de canciones'),
       ),
       body: ListView(
-        children: const [
+        children: [
           ListTile(
             title: Text('Billie Jean'),
             subtitle: Text('Michael Jackson'),
+            onTap: () {
+              // Navegar a la pantalla de la canción 1
+              Navigator.of(context).push(SingleSongScreen(
+                  song: Song(
+                      title: 'Canción 1',
+                      artist: 'Artista 1',
+                      album: 'Álbum 1',
+                      genre: '')));
+            },
           ),
           ListTile(
             title: Text('Like a Prayer'),
