@@ -1,11 +1,12 @@
-import 'package:consumify/screens/single_song_screen.dart';
 import 'package:consumify/utilities/songs_loader.dart';
+import 'package:consumify/widgets/songCard.dart';
 import 'package:flutter/material.dart';
 
 class SonglistScreen extends StatefulWidget {
-  const SonglistScreen({Key? key}) : super(key: key);
+  const SonglistScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SonglistScreenState createState() => _SonglistScreenState();
 }
 
@@ -34,18 +35,7 @@ class _SonglistScreenState extends State<SonglistScreen> {
           } else {
             return ListView(
               children: snapshot.data!.map((song) {
-                return ListTile(
-                  title: Text(song.title),
-                  subtitle: Text(song.artist),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SingleSongScreen(song: song),
-                      ),
-                    );
-                  },
-                );
+                return SongCard(song: song);
               }).toList(),
             );
           }
