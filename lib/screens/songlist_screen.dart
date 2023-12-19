@@ -1,5 +1,5 @@
 import 'package:consumify/utilities/songs_loader.dart';
-import 'package:consumify/widgets/songCard.dart';
+import 'package:consumify/widgets/song_card.dart';
 import 'package:flutter/material.dart';
 
 class SonglistScreen extends StatefulWidget {
