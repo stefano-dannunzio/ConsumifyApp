@@ -1,4 +1,3 @@
-import 'package:consumify/screens/artist_screen.dart';
 import 'package:consumify/screens/screens.dart';
 import 'package:flutter/material.dart';
 
