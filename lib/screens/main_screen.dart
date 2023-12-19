@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Lista de canciones',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.music_note),
+            icon: Icon(Icons.contacts),
             label: 'Artistas',
           ),
           // Agrega un ítem para ArtistScreen aquí si ya lo has implementado
