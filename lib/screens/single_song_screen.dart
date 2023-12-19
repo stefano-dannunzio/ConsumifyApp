@@ -1,47 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:consumify/utilities/songs_loader.dart';
 
-class SingleSongScreen extends StatefulWidget {
-  const SingleSongScreen({super.key, required this.song});
-
+class SingleSongScreen extends StatelessWidget {
   final Song song;
 
-  @override
-  // ignore: library_private_types_in_public_api
-  _SingleSongScreenState createState() => _SingleSongScreenState();
-}
+  const SingleSongScreen({required this.song});
 
-class _SingleSongScreenState extends State<SingleSongScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.song.title),
+        title: Text(song.title),
       ),
-      body: Center(
-        child: Column(children: [
-          Text('${widget.song.artist} - ${widget.song.album}'),
-          Text(widget.song.genre)
-        ]),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Título: ${song.title}',
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Text('Artista: ${song.artist}'),
+            Text('Álbum: ${song.album}'),
+            Text('Género: ${song.genre}'),
+          ],
+        ),
       ),
     );
-  }
-}
-
-class Song {
-  final String title;
-  final String artist;
-  final String album;
-  final String genre;
-
-  Song({
-    required this.title,
-    required this.artist,
-    required this.album,
-    required this.genre,
-  });
-
-  @override
-  String toString() {
-    return 'Song(titulo: $title, artista: $artist, album: $album, genre: $genre)';
   }
 }

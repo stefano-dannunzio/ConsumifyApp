@@ -1,47 +1,98 @@
 [
-    {
-      "name": "Bohemian Rhapsody",
-      "id": "507d1f79883c49f9a57905b4",
-      "artist": "Queen",
-      "album": {
-        "name": "A Night at the Opera",
-        "image_url": "https://example.com/bohemian_rhapsody.jpg"
-      }
-    },
-    {
-      "name": "Imagine",
-      "id": "0ec7409953be9a4a9744c41d9",
-      "artist": "John Lennon",
-      "album": {
-        "name": "Imagine",
-        "image_url": "https://example.com/imagine.jpg"
-      }
-    },
-    {
-      "name": "Hallelujah",
-      "id": "4225a324870a115d9989991e",
-      "artist": "Leonard Cohen",
-      "album": {
-        "name": "Various Artists - Songs of Leonard Cohen",
-        "image_url": "https://example.com/hallelujah_various.jpg"
-      }
-    },
-    {
-      "name": "What a Wonderful World",
-      "id": "07156d60000b8bbd5b2a1052",
-      "artist": "Louis Armstrong",
-      "album": {
-        "name": "The Complete Louis Armstrong & The All Stars",
-        "image_url": "https://example.com/wonderful_world_louis.jpg"
-      }
-    },
-    {
-      "name": "Respect",
-      "id": "54hljb9tGqri6oD0tD7wwT",
-      "artist": "Aretha Franklin",
-      "album": {
-        "name": "I Never Loved a Man the Way I Love You",
-        "image_url": "https://example.com/respect_aretha.jpg"
-      }
-    }
-  ]
+  {
+   "title": "Billie Jean",
+   "artist": "Michael Jackson",
+   "album": "Thriller",
+   "genre": "Pop"
+  },
+  {
+   "title": "Like a Prayer",
+   "artist": "Madonna",
+   "album": "Like a Prayer",
+   "genre": "Pop"
+  },
+  {
+   "title": "Video Killed the Radio Star",
+   "artist": "The Buggles",
+   "album": "The Buggles",
+   "genre": "Pop"
+  },
+  {
+   "title": "We Built This City",
+   "artist": "Starship",
+   "album": "Knee Deep in the Hoopla",
+   "genre": "Pop"
+  },
+  {
+   "title": "Sweet Child o' Mine",
+   "artist": "Guns N' Roses",
+   "album": "Appetite for Destruction",
+   "genre": "Hard Rock"
+  },
+  {
+   "title": "Like a Virgin",
+   "artist": "Madonna",
+   "album": "Like a Virgin",
+   "genre": "Pop"
+  },
+  {
+   "title": "Born in the U.S.A.",
+   "artist": "Bruce Springsteen",
+   "album": "Born in the U.S.A.",
+   "genre": "Rock"
+  },
+  {
+   "title": "99 Red Balloons",
+   "artist": "Nena",
+   "album": "99 Red Balloons",
+   "genre": "Pop"
+  },
+  {
+   "title": "Dancing Queen",
+   "artist": "ABBA",
+   "album": "Dancing Queen",
+   "genre": "Pop"
+  },
+  {
+   "title": "Don't Stop Believin'",
+   "artist": "Journey",
+   "album": "Escape",
+   "genre": "Rock"
+  },
+  {
+   "title": "I Want to Break Free",
+   "artist": "Queen",
+   "album": "A Night at the Opera",
+   "genre": "Rock"
+  },
+  {
+   "title": "Livin' on a Prayer",
+   "artist": "Bon Jovi",
+   "album": "Slippery When Wet",
+   "genre": "Rock"
+  },
+  {
+   "title": "Sweet Caroline",
+   "artist": "Neil Diamond",
+   "album": "Hot August Night",
+   "genre": "Pop"
+  },
+  {
+   "title": "We Will Rock You",
+   "artist": "Queen",
+   "album": "News of the World",
+   "genre": "Rock"
+  },
+  {
+   "title": "I Will Always Love You",
+   "artist": "Whitney Houston",
+   "album": "The Bodyguard",
+   "genre": "Pop"
+  },
+  {
+   "title": "Material Girl",
+   "artist": "Madonna",
+   "album": "Like a Prayer",
+   "genre": "Pop"
+  }
+ ]
