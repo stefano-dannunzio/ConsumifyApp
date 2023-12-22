@@ -35,7 +35,10 @@ class PlaylistTracksScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => ApiResponseScreen(
-                                  future: future, titulo: 'nombreCancion')));
+                                    future: future,
+                                    titulo: 'nombreCancion',
+                                    artista: 'artistas',
+                                  )));
                     }
                   },
                   child: const Text('Send'),

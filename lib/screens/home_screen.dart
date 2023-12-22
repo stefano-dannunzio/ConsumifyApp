@@ -1,6 +1,7 @@
 import 'package:consumify/screens/screens.dart';
 import 'package:consumify/services/services.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -31,10 +32,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MainScreen()),
-                  );
+                  Get.to(const MainScreen());
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 30, 215, 96),
@@ -51,11 +49,7 @@ class HomeScreen extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ApiTestingScreen()),
-                  );
+                  Get.to(const ApiTestingScreen());
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 30, 215, 96),

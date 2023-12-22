@@ -16,4 +16,28 @@ class TracksService {
       throw Exception('Failed to load recommendations');
     }
   }
+
+  Future<List<dynamic>> getRecomById(String id) async {
+    final response =
+        await http.get(Uri.parse('$apiUrl/tracks/recommendations/id/$id'));
+
+    if (response.statusCode == 200) {
+      print('Response body: ${response.body}');
+      return jsonDecode(response.body);
+    } else {
+      throw Exception('Failed to load track');
+    }
+  }
+
+  Future<List<dynamic>> getRecomByArtistName(String artistName) async {
+    final response = await http
+        .get(Uri.parse('$apiUrl/tracks/recommendations/artist/$artistName'));
+
+    if (response.statusCode == 200) {
+      print('Response body: ${response.body}');
+      return jsonDecode(response.body);
+    } else {
+      throw Exception('Failed to load track');
+    }
+  }
 }

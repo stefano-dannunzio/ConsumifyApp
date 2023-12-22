@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 class ApiResponseScreen extends StatefulWidget {
   final Future<List<dynamic>> future;
   final String titulo;
+  final String artista;
+  final String? playlistName;
 
   const ApiResponseScreen(
-      {super.key, required this.future, required this.titulo});
+      {super.key,
+      required this.future,
+      required this.titulo,
+      required this.artista,
+      this.playlistName});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -32,6 +38,7 @@ class _ApiResponseScreenState extends State<ApiResponseScreen> {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(snapshot.data![index][widget.titulo]),
+                  subtitle: Text(snapshot.data![index][widget.artista]),
                   // Añade más campos según sea necesario
                 );
               },

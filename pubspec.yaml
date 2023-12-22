@@ -7,8 +7,11 @@ environment:
   sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
+  carousel_slider: ^4.2.1
   flutter:
     sdk: flutter
+  get: ^4.6.6
+  getwidget: ^4.0.0
   google_fonts: ^6.1.0
   http: ^1.1.2
 

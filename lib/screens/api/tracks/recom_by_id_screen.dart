@@ -2,51 +2,45 @@ import 'package:consumify/screens/screens.dart';
 import 'package:consumify/services/services.dart';
 import 'package:flutter/material.dart';
 
-class GetRecommendationsScreen extends StatefulWidget {
-  const GetRecommendationsScreen({super.key});
+class GetRecomByIdScreen extends StatefulWidget {
+  const GetRecomByIdScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _GetRecommendationsScreenState createState() =>
-      _GetRecommendationsScreenState();
+  _GetRecomByIdScreenState createState() => _GetRecomByIdScreenState();
 }
 
-class _GetRecommendationsScreenState extends State<GetRecommendationsScreen> {
+class _GetRecomByIdScreenState extends State<GetRecomByIdScreen> {
   final _formKey = GlobalKey<FormState>();
-  String _seedGenres = '';
-  String _seedArtists = '';
+  String _id = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('getRecommendations'),
+        title: const Text('getRecomByIdScreen'),
       ),
       body: Form(
         key: _formKey,
         child: Column(
           children: [
             TextFormField(
-              decoration: const InputDecoration(labelText: 'seed_genres'),
-              onSaved: (value) => _seedGenres = value!,
-            ),
-            TextFormField(
-              decoration: const InputDecoration(labelText: 'seed_artists'),
-              onSaved: (value) => _seedArtists = value!,
+              decoration: const InputDecoration(labelText: 'recommendation_id'),
+              onSaved: (value) => _id = value!,
             ),
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
                   // Aquí puedes hacer la solicitud a la API
-                  final future = TracksService()
-                      .getRecommendations(_seedGenres, _seedArtists);
+                  final future = TracksService().getRecomById(_id);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => ApiResponseScreen(
                               future: future,
                               titulo: 'track_name',
+                              artista: 'artist_name',
                             )),
                   );
                 }

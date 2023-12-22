@@ -1,4 +1,3 @@
-import 'package:consumify/screens/api/playlists_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:consumify/screens/screens.dart';
 
@@ -42,6 +41,28 @@ class _ApiTestingScreenState extends State<ApiTestingScreen> {
               },
             ),
             ListTile(
+              title: const Text('getRecomByArtistName'),
+              onTap: () {
+                _scaffoldKey.currentState!.openEndDrawer();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const GetRecomByArtistNameScreen()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('getRecomById'),
+              onTap: () {
+                _scaffoldKey.currentState!.openEndDrawer();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const GetRecomByIdScreen()),
+                );
+              },
+            ),
+            ListTile(
               title: const Text('getPlaylistTracks'),
               onTap: () {
                 _scaffoldKey.currentState!.openEndDrawer();
@@ -52,6 +73,29 @@ class _ApiTestingScreenState extends State<ApiTestingScreen> {
                 );
               },
             ),
+            ListTile(
+              title: const Text('getAlbum'),
+              onTap: () {
+                _scaffoldKey.currentState!.openEndDrawer();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const GetAlbumScreen()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('getArtistAlbums'),
+              onTap: () {
+                _scaffoldKey.currentState!.openEndDrawer();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const GetArtistAlbumsScreen()),
+                );
+              },
+            ),
+
             // Agrega más ListTiles para otros métodos de la API
           ],
         ),
