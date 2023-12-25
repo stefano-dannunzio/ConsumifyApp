@@ -36,6 +36,7 @@ class _ApiResponseScreenState extends State<ApiResponseScreen> {
             return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
+                print(snapshot.data![index]);
                 return ListTile(
                   title: Text(snapshot.data![index][widget.titulo]),
                   subtitle: Text(snapshot.data![index][widget.artista]),

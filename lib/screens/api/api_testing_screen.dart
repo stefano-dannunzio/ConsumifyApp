@@ -74,6 +74,17 @@ class _ApiTestingScreenState extends State<ApiTestingScreen> {
               },
             ),
             ListTile(
+              title: const Text('getPlaylistTracksByArtist'),
+              onTap: () {
+                _scaffoldKey.currentState!.openEndDrawer();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PlaylistTracksArtist()),
+                );
+              },
+            ),
+            ListTile(
               title: const Text('getAlbum'),
               onTap: () {
                 _scaffoldKey.currentState!.openEndDrawer();

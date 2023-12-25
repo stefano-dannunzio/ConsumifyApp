@@ -5,9 +5,11 @@ class PlaylistService {
   final String apiUrl = 'http://consumify-api.onrender.com';
 
   Future<List<dynamic>> getPlaylistTracks(String idPlaylist) async {
-    final response = await http
-        .get(Uri.parse('$apiUrl/playlist/playlistTracks/$idPlaylist'));
+    final Uri uri =
+      Uri.parse('http://localhost:3000/playlist/playlistTracks/$idPlaylist');
 
+    final response = await http.get(uri);
+    
     if (response.statusCode == 200) {
       print('Response body: ${response.body}');
       return (jsonDecode(response.body) as Map<String, dynamic>)['tracks']
@@ -16,4 +18,23 @@ class PlaylistService {
       throw Exception('Failed to load recommendations');
     }
   }
+
+  Future<List<dynamic>> getPlaylistTracksArtist(String idPlaylist, String idArtist) async {
+    final Uri uri =
+      Uri.parse('http://localhost:3000/playlist/$idPlaylist/playlistTracks/artist?artistId=$idArtist');
+
+    final response = await http.get(uri);
+    
+    if (response.statusCode == 200) {
+      print('Response body ARTIST: ${response.body}');
+      return (jsonDecode(response.body) as Map<String, dynamic>)['canciones']
+          as List<dynamic>;
+    } else {
+      throw Exception('Failed to load recommendations');
+    }
+  }
+
+ 
 }
+
+
