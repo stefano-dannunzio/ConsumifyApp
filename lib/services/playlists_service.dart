@@ -6,10 +6,10 @@ class PlaylistService {
 
   Future<List<dynamic>> getPlaylistTracks(String idPlaylist) async {
     final Uri uri =
-      Uri.parse('http://localhost:3000/playlist/playlistTracks/$idPlaylist');
+        Uri.parse('http://localhost:3000/playlist/playlistTracks/$idPlaylist');
 
     final response = await http.get(uri);
-    
+
     if (response.statusCode == 200) {
       print('Response body: ${response.body}');
       return (jsonDecode(response.body) as Map<String, dynamic>)['tracks']
@@ -19,12 +19,13 @@ class PlaylistService {
     }
   }
 
-  Future<List<dynamic>> getPlaylistTracksArtist(String idPlaylist, String idArtist) async {
-    final Uri uri =
-      Uri.parse('http://localhost:3000/playlist/$idPlaylist/playlistTracks/artist?artistId=$idArtist');
+  Future<List<dynamic>> getPlaylistTracksArtist(
+      String idPlaylist, String idArtist) async {
+    final Uri uri = Uri.parse(
+        'http://localhost:3000/playlist/$idPlaylist/playlistTracks/artist?artistId=$idArtist');
 
     final response = await http.get(uri);
-    
+
     if (response.statusCode == 200) {
       print('Response body ARTIST: ${response.body}');
       return (jsonDecode(response.body) as Map<String, dynamic>)['canciones']
@@ -33,8 +34,4 @@ class PlaylistService {
       throw Exception('Failed to load recommendations');
     }
   }
-
- 
 }
-
-

@@ -45,7 +45,9 @@ class _GetRecommendationsScreenState extends State<GetRecommendationsScreen> {
                   Get.to(RecommendationsResponseScreen(
                       future: future,
                       trackName: 'track_name',
-                      artistName: 'artist_name'));
+                      artistName: 'artist_name',
+                      albumImgUrl: 'album_img',
+                      audioUrl: 'preview_url'));
                 }
               },
               child: const Text('Send'),

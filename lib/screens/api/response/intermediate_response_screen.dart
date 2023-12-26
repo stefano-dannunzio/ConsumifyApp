@@ -7,6 +7,7 @@ class ApiIntermediateResponseScreen extends StatefulWidget {
   final Future<List<dynamic>> future;
   final String titulo;
   final String artista;
+  final String image;
   final String id;
 
   const ApiIntermediateResponseScreen(
@@ -14,7 +15,8 @@ class ApiIntermediateResponseScreen extends StatefulWidget {
       required this.future,
       required this.titulo,
       required this.artista,
-      required this.id});
+      required this.id,
+      required this.image});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -54,6 +56,11 @@ class _ApiIntermediateResponseScreenState
                       ));
                     },
                     child: ListTile(
+                      leading: Image.network(
+                        snapshot.data![index][widget.image],
+                        width: 100,
+                        height: 100,
+                      ),
                       title: Text(snapshot.data![index][widget.titulo]),
                       subtitle: Text(snapshot.data![index][widget.artista]),
                       // Add more fields as necessary

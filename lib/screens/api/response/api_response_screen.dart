@@ -5,13 +5,15 @@ class ApiResponseScreen extends StatefulWidget {
   final String titulo;
   final String artista;
   final String? playlistName;
+  final String? albumImg;
 
   const ApiResponseScreen(
       {super.key,
       required this.future,
       required this.titulo,
       required this.artista,
-      this.playlistName});
+      this.playlistName,
+      this.albumImg});
 
   @override
   // ignore: library_private_types_in_public_api

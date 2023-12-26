@@ -39,6 +39,7 @@ class _GetAlbumScreenState extends State<GetAlbumScreen> {
                     future: future,
                     titulo: 'Album_name',
                     artista: 'Album_artist',
+                    image: 'Album_image',
                     id: 'id',
                   ));
                 }

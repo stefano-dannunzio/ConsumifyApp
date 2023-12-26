@@ -1,26 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:get/get.dart';
 
-class RecommendationsResponseScreen extends StatelessWidget {
+class RecommendationsResponseScreen extends StatefulWidget {
   final Future<List<dynamic>> future;
   final String trackName;
   final String artistName;
+  final String albumImgUrl;
+  final String? audioUrl;
 
   const RecommendationsResponseScreen({
-    Key? key,
+    super.key,
     required this.future,
     required this.trackName,
     required this.artistName,
-  }) : super(key: key);
+    required this.albumImgUrl,
+    required this.audioUrl,
+  });
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _RecommendationsResponseScreenState createState() =>
+      _RecommendationsResponseScreenState();
+}
+
+class _RecommendationsResponseScreenState
+    extends State<RecommendationsResponseScreen> {
+  AudioPlayer? _player;
+
+  @override
+  void initState() {
+    super.initState();
+    _player = AudioPlayer();
+  }
+
+  @override
+  void dispose() {
+    _player?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<dynamic>>(
-      future: future,
+      future: widget.future,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {
@@ -43,12 +70,28 @@ class RecommendationsResponseScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              Text(recommendation[trackName],
+                              Image.network(
+                                recommendation[widget.albumImgUrl],
+                                width: 250,
+                                height: 250,
+                              ),
+                              Text(recommendation[widget.trackName],
                                   style: TextStyle(fontSize: 24),
                                   textAlign: TextAlign.center),
-                              Text(recommendation[artistName],
+                              Text(recommendation[widget.artistName],
                                   style: TextStyle(fontSize: 16),
                                   textAlign: TextAlign.center),
+                              if (widget.audioUrl != null)
+                                ElevatedButton(
+                                  onPressed: () async {
+                                    await _player!.stop();
+
+                                    await _player!.setUrl(
+                                        recommendation[widget.audioUrl]);
+                                    _player!.play();
+                                  },
+                                  child: const Text('Play'),
+                                ),
                             ],
                           ),
                         ),
