@@ -52,61 +52,64 @@ class _RecommendationsResponseScreenState
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {
           final recommendations = snapshot.data!;
-          return Column(
-            children: [
-              CarouselSlider(
-                options: CarouselOptions(height: 400),
-                items: recommendations.map((recommendation) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Card(
-                          elevation: 8.0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Image.network(
-                                recommendation[widget.albumImgUrl],
-                                width: 250,
-                                height: 250,
-                              ),
-                              Text(recommendation[widget.trackName],
-                                  style: TextStyle(fontSize: 24),
-                                  textAlign: TextAlign.center),
-                              Text(recommendation[widget.artistName],
-                                  style: TextStyle(fontSize: 16),
-                                  textAlign: TextAlign.center),
-                              if (widget.audioUrl != null)
-                                ElevatedButton(
-                                  onPressed: () async {
-                                    await _player!.stop();
-
-                                    await _player!.setUrl(
-                                        recommendation[widget.audioUrl]);
-                                    _player!.play();
-                                  },
-                                  child: const Text('Play'),
+          return Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CarouselSlider(
+                  options: CarouselOptions(height: 400),
+                  items: recommendations.map((recommendation) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          child: Card(
+                            elevation: 8.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Image.network(
+                                  recommendation[widget.albumImgUrl],
+                                  width: 250,
+                                  height: 250,
                                 ),
-                            ],
+                                Text(recommendation[widget.trackName],
+                                    style: TextStyle(fontSize: 24),
+                                    textAlign: TextAlign.center),
+                                Text(recommendation[widget.artistName],
+                                    style: TextStyle(fontSize: 16),
+                                    textAlign: TextAlign.center),
+                                if (recommendation[widget.audioUrl] != null)
+                                  ElevatedButton(
+                                    onPressed: () async {
+                                      await _player!.stop();
+
+                                      await _player!.setUrl(
+                                          recommendation[widget.audioUrl]);
+                                      _player!.play();
+                                    },
+                                    child: const Text('Play'),
+                                  ),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  );
-                }).toList(),
-              ),
-              IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () {
-                  Get.back();
-                },
-              ),
-            ],
+                        );
+                      },
+                    );
+                  }).toList(),
+                ),
+                IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Get.back();
+                  },
+                ),
+              ],
+            ),
           );
         }
       },
