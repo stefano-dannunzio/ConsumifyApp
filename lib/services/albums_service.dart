@@ -20,8 +20,7 @@ class AlbumService {
 
     if (response.statusCode == 200) {
       print('Response body: ${response.body}');
-      return (jsonDecode(response.body) as Map<String, dynamic>)['tracks']
-          as List<dynamic>;
+      return jsonDecode(response.body) as List<dynamic>;
     } else {
       throw Exception('Failed to load album tracks');
     }

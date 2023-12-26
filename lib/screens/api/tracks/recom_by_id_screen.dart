@@ -1,6 +1,7 @@
 import 'package:consumify/screens/screens.dart';
 import 'package:consumify/services/services.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class GetRecomByIdScreen extends StatefulWidget {
   const GetRecomByIdScreen({super.key});
@@ -34,15 +35,11 @@ class _GetRecomByIdScreenState extends State<GetRecomByIdScreen> {
                   _formKey.currentState!.save();
                   // Aquí puedes hacer la solicitud a la API
                   final future = TracksService().getRecomById(_id);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ApiResponseScreen(
-                              future: future,
-                              titulo: 'track_name',
-                              artista: 'artist_name',
-                            )),
-                  );
+                  Get.to(ApiResponseScreen(
+                    future: future,
+                    titulo: 'track_name',
+                    artista: 'artist_name',
+                  ));
                 }
               },
               child: const Text('Send'),

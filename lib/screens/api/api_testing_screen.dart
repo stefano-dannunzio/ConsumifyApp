@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:consumify/screens/screens.dart';
+import 'package:get/get.dart';
 
 class ApiTestingScreen extends StatefulWidget {
   const ApiTestingScreen({super.key});
@@ -33,77 +34,49 @@ class _ApiTestingScreenState extends State<ApiTestingScreen> {
               title: const Text('getRecommendations'),
               onTap: () {
                 _scaffoldKey.currentState!.openEndDrawer();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const GetRecommendationsScreen()),
-                );
+                Get.to(const GetRecommendationsScreen());
               },
             ),
             ListTile(
               title: const Text('getRecomByArtistName'),
               onTap: () {
                 _scaffoldKey.currentState!.openEndDrawer();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const GetRecomByArtistNameScreen()),
-                );
+                Get.to(const GetRecomByArtistNameScreen());
               },
             ),
             ListTile(
               title: const Text('getRecomById'),
               onTap: () {
                 _scaffoldKey.currentState!.openEndDrawer();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const GetRecomByIdScreen()),
-                );
+                Get.to(const GetRecomByIdScreen());
               },
             ),
             ListTile(
               title: const Text('getPlaylistTracks'),
               onTap: () {
                 _scaffoldKey.currentState!.openEndDrawer();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => PlaylistTracksScreen()),
-                );
+                Get.to(PlaylistTracksScreen());
               },
             ),
             ListTile(
               title: const Text('getPlaylistTracksByArtist'),
               onTap: () {
                 _scaffoldKey.currentState!.openEndDrawer();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => PlaylistTracksArtist()),
-                );
+                Get.to(PlaylistTracksArtist());
               },
             ),
             ListTile(
               title: const Text('getAlbum'),
               onTap: () {
                 _scaffoldKey.currentState!.openEndDrawer();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const GetAlbumScreen()),
-                );
+                Get.to(const GetAlbumScreen());
               },
             ),
             ListTile(
               title: const Text('getArtistAlbums'),
               onTap: () {
                 _scaffoldKey.currentState!.openEndDrawer();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const GetArtistAlbumsScreen()),
-                );
+                Get.to(const GetArtistAlbumsScreen());
               },
             ),
 

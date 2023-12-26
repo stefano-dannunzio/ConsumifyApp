@@ -1,6 +1,7 @@
 import 'package:consumify/screens/screens.dart';
 import 'package:consumify/services/services.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class GetRecomByArtistNameScreen extends StatefulWidget {
   const GetRecomByArtistNameScreen({super.key});
@@ -37,15 +38,11 @@ class _GetRecomByArtistNameScreenState
                   // Aquí puedes hacer la solicitud a la API
                   final future =
                       TracksService().getRecomByArtistName(_artistName);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ApiResponseScreen(
-                              future: future,
-                              titulo: 'track_name',
-                              artista: 'artist_name',
-                            )),
-                  );
+                  Get.to(ApiResponseScreen(
+                    future: future,
+                    titulo: 'track_name',
+                    artista: 'artist_name',
+                  ));
                 }
               },
               child: const Text('Send'),

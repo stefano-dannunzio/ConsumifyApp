@@ -4,7 +4,7 @@ import 'package:consumify/utilities/songs_loader.dart';
 class SingleSongScreen extends StatelessWidget {
   final Song song;
 
-  const SingleSongScreen({required this.song});
+  const SingleSongScreen({super.key, required this.song});
 
   @override
   Widget build(BuildContext context) {

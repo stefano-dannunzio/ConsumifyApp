@@ -1,6 +1,7 @@
 import 'package:consumify/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:consumify/services/services.dart';
+import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class PlaylistTracksArtist extends StatelessWidget {
@@ -37,14 +38,11 @@ class PlaylistTracksArtist extends StatelessWidget {
                       _formKey.currentState!.save();
                       final future = _playlistService.getPlaylistTracksArtist(
                           _idPlaylist, _idArtist);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ApiResponseScreen(
-                                    future: future,
-                                    titulo: 'nombreCancion',
-                                    artista: 'Artista',
-                                  )));
+                      Get.to(ApiResponseScreen(
+                        future: future,
+                        titulo: 'nombreCancion',
+                        artista: 'Artista',
+                      ));
                     }
                   },
                   child: const Text('Send'),

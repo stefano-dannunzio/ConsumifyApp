@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:consumify/screens/screens.dart';
+import 'package:get/get.dart';
+import 'package:consumify/services/services.dart';
 
 class ApiIntermediateResponseScreen extends StatefulWidget {
   final Future<List<dynamic>> future;
@@ -42,11 +44,14 @@ class _ApiIntermediateResponseScreenState
                 return Card(
                   child: InkWell(
                     onTap: () async {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => GetAlbumTracksScreen()),
-                      );
+                      //crear objeto future con el id del album
+                      final future = AlbumService()
+                          .getAlbumTracks(snapshot.data![index][widget.id]);
+                      Get.to(ApiResponseScreen(
+                        future: future,
+                        titulo: 'track_name',
+                        artista: 'artist_name',
+                      ));
                     },
                     child: ListTile(
                       title: Text(snapshot.data![index][widget.titulo]),
