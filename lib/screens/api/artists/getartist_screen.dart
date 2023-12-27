@@ -3,15 +3,15 @@ import 'package:consumify/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class GetArtistAlbumsScreen extends StatefulWidget {
-  const GetArtistAlbumsScreen({super.key});
+class GetArtistScreen extends StatefulWidget {
+  const GetArtistScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _GetArtistAlbumsScreenState createState() => _GetArtistAlbumsScreenState();
+  _GetArtistScreenState createState() => _GetArtistScreenState();
 }
 
-class _GetArtistAlbumsScreenState extends State<GetArtistAlbumsScreen> {
+class _GetArtistScreenState extends State<GetArtistScreen> {
   final _formkey = GlobalKey<FormState>();
   String idArtista = '';
 
@@ -19,7 +19,7 @@ class _GetArtistAlbumsScreenState extends State<GetArtistAlbumsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Get Artist Albums'),
+          title: const Text('Get Artist'),
         ),
         body: Form(
           key: _formkey,
@@ -35,15 +35,15 @@ class _GetArtistAlbumsScreenState extends State<GetArtistAlbumsScreen> {
                 onPressed: () async {
                   if (_formkey.currentState!.validate()) {
                     _formkey.currentState!.save();
-                    final future = ArtistService().getArtistAlbum(idArtista);
-                    Get.to(ApiResponseScreen(
+                    final future = ArtistService().getArtist(idArtista);
+                    Get.to(ArtistResponseScreen(
                       future: future,
-                      titulo: 'nombreAlbum',
-                      artista: 'nombreArtista',
+                      nombre: 'nombreArtista',
+                      img: 'imagenArtista',
                     ));
                   }
                 },
-                child: const Text('Get Artist Albums'),
+                child: const Text('Get Artist'),
               ),
             ],
           ),
