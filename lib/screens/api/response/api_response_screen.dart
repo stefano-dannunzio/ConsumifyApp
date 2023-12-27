@@ -5,13 +5,15 @@ class ApiResponseScreen extends StatefulWidget {
   final String titulo;
   final String artista;
   final String? playlistName;
+  final String? imagen;
 
   const ApiResponseScreen(
       {super.key,
       required this.future,
       required this.titulo,
       required this.artista,
-      this.playlistName});
+      this.playlistName,
+      this.imagen});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -38,9 +40,13 @@ class _ApiResponseScreenState extends State<ApiResponseScreen> {
               itemBuilder: (context, index) {
                 print(snapshot.data![index]);
                 return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(snapshot.data![index][widget.imagen]),
+                    radius: 30,
+                  ),
                   title: Text(snapshot.data![index][widget.titulo]),
                   subtitle: Text(snapshot.data![index][widget.artista]),
-                  // Añade más campos según sea necesario
+
                 );
               },
             );

@@ -38,6 +38,7 @@ class PlaylistTracksScreen extends StatelessWidget {
                                     future: future,
                                     titulo: 'nombreCancion',
                                     artista: 'artistas',
+                                    imagen: 'imagenCancion'
                                   )));
                     }
                   },

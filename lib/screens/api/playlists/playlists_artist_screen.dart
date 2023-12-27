@@ -44,6 +44,7 @@ class PlaylistTracksArtist extends StatelessWidget {
                                     future: future,
                                     titulo: 'nombreCancion',
                                     artista: 'Artista',
+                                    imagen: 'imagenCancion'
                                   )));
                     }
                   },

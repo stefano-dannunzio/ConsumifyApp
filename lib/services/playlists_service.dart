@@ -6,7 +6,7 @@ class PlaylistService {
 
   Future<List<dynamic>> getPlaylistTracks(String idPlaylist) async {
     final Uri uri =
-      Uri.parse('http://localhost:3000/playlist/playlistTracks/$idPlaylist');
+      Uri.parse('https://maxiozonas-consumify.onrender.com/playlist/playlistTracks/$idPlaylist');
 
     final response = await http.get(uri);
     
@@ -21,7 +21,7 @@ class PlaylistService {
 
   Future<List<dynamic>> getPlaylistTracksArtist(String idPlaylist, String idArtist) async {
     final Uri uri =
-      Uri.parse('http://localhost:3000/playlist/$idPlaylist/playlistTracks/artist?artistId=$idArtist');
+      Uri.parse('https://maxiozonas-consumify.onrender.com/playlist/$idPlaylist/playlistTracks/artist?artistId=$idArtist');
 
     final response = await http.get(uri);
     
