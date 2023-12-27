@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:consumify/screens/screens.dart';
+import 'package:get/get.dart';
+import 'package:consumify/services/services.dart';
 
 class ApiIntermediateResponseScreen extends StatefulWidget {
   final Future<List<dynamic>> future;
   final String titulo;
   final String artista;
+  final String image;
   final String id;
 
   const ApiIntermediateResponseScreen(
@@ -12,7 +15,8 @@ class ApiIntermediateResponseScreen extends StatefulWidget {
       required this.future,
       required this.titulo,
       required this.artista,
-      required this.id});
+      required this.id,
+      required this.image});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -42,13 +46,21 @@ class _ApiIntermediateResponseScreenState
                 return Card(
                   child: InkWell(
                     onTap: () async {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => GetAlbumTracksScreen()),
-                      );
+                      //crear objeto future con el id del album
+                      final future = AlbumService()
+                          .getAlbumTracks(snapshot.data![index][widget.id]);
+                      Get.to(ApiResponseScreen(
+                        future: future,
+                        titulo: 'track_name',
+                        artista: 'artist_name',
+                      ));
                     },
                     child: ListTile(
+                      leading: Image.network(
+                        snapshot.data![index][widget.image],
+                        width: 100,
+                        height: 100,
+                      ),
                       title: Text(snapshot.data![index][widget.titulo]),
                       subtitle: Text(snapshot.data![index][widget.artista]),
                       // Add more fields as necessary

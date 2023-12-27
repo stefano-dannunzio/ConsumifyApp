@@ -1,6 +1,7 @@
 import 'package:consumify/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:consumify/services/services.dart';
+import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class PlaylistTracksArtist extends StatelessWidget {

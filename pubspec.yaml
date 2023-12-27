@@ -14,6 +14,7 @@ dependencies:
   getwidget: ^4.0.0
   google_fonts: ^6.1.0
   http: ^1.1.2
+  just_audio: ^0.9.36
 
 dev_dependencies:
   flutter_test:

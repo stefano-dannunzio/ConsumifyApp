@@ -3,10 +3,13 @@ import 'dart:convert';
 
 class ArtistService {
   final String apiUrl = 'http://consumify-api.onrender.com';
+  String ayudin = '';
 
   Future<List<dynamic>> getArtistAlbum(String id) async {
     final response =
         await http.get(Uri.parse('$apiUrl/artists/artistaalbum/$id'));
+
+    ayudin = id;
 
     if (response.statusCode == 200) {
       print('Response body: ${response.body}');

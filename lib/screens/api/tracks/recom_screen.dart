@@ -1,6 +1,7 @@
 import 'package:consumify/screens/screens.dart';
 import 'package:consumify/services/services.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class GetRecommendationsScreen extends StatefulWidget {
   const GetRecommendationsScreen({super.key});
@@ -41,15 +42,12 @@ class _GetRecommendationsScreenState extends State<GetRecommendationsScreen> {
                   // Aquí puedes hacer la solicitud a la API
                   final future = TracksService()
                       .getRecommendations(_seedGenres, _seedArtists);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => RecommendationsResponseScreen(
-                              future: future,
-                              trackName: 'track_name',
-                              artistName: 'artist_name',
-                            )),
-                  );
+                  Get.to(RecommendationsResponseScreen(
+                      future: future,
+                      trackName: 'track_name',
+                      artistName: 'artist_name',
+                      albumImgUrl: 'album_img',
+                      audioUrl: 'preview_url'));
                 }
               },
               child: const Text('Send'),
