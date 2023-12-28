@@ -2,8 +2,20 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class PlaylistService {
-  final String apiUrl = 'http://consumify-api.onrender.com';
+  final String apiUrl = 'https://maxiozonas-consumify.onrender.com';
 
+  Future<List<dynamic>> getPlaylist(String idPlaylist) async {
+    final response = await http.get(Uri.parse('$apiUrl/playlist/$idPlaylist'));
+
+    if (response.statusCode == 200) {
+      print('Response body: ${response.body}');
+      return jsonDecode(response.body);
+    } else {
+      throw Exception('Failed to load playlist');
+    }
+  }
+  
+  
   Future<List<dynamic>> getPlaylistTracks(String idPlaylist) async {
     final Uri uri =
       Uri.parse('https://maxiozonas-consumify.onrender.com/playlist/playlistTracks/$idPlaylist');
