@@ -2,11 +2,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class PlaylistService {
-  final String apiUrl = 'http://consumify-api.onrender.com';
+  final String apiUrl = 'https://consumify-api.onrender.com';
 
   Future<List<dynamic>> getPlaylistTracks(String idPlaylist) async {
-    final Uri uri =
-        Uri.parse('http://localhost:3000/playlist/playlistTracks/$idPlaylist');
+    final Uri uri = Uri.parse('$apiUrl/playlist/playlistTracks/$idPlaylist');
 
     final response = await http.get(uri);
 
@@ -22,7 +21,7 @@ class PlaylistService {
   Future<List<dynamic>> getPlaylistTracksArtist(
       String idPlaylist, String idArtist) async {
     final Uri uri = Uri.parse(
-        'http://localhost:3000/playlist/$idPlaylist/playlistTracks/artist?artistId=$idArtist');
+        '$apiUrl/playlist/$idPlaylist/playlistTracks/artist?artistId=$idArtist');
 
     final response = await http.get(uri);
 

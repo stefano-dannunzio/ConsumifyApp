@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:get/get.dart';
 
@@ -56,7 +56,7 @@ class _RecommendationsResponseScreenState
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                /* CarouselSlider(
+                CarouselSlider(
                   options: CarouselOptions(height: 400),
                   items: recommendations.map((recommendation) {
                     return Builder(
@@ -101,7 +101,7 @@ class _RecommendationsResponseScreenState
                       },
                     );
                   }).toList(),
-                ) */
+                ),
                 IconButton(
                   icon: const Icon(Icons.arrow_back),
                   onPressed: () {
