@@ -1,5 +1,4 @@
 import 'package:consumify/screens/screens.dart';
-import 'package:consumify/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

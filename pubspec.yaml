@@ -15,11 +15,18 @@ dependencies:
   google_fonts: ^6.1.0
   http: ^1.1.2
   just_audio: ^0.9.36
+  collection: ^1.18.0
+  http_parser: ^4.0.2
+  material_color_utilities: ^0.11.0
+  string_scanner: ^1.2.0
+  web: ^1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
+  flutter_lints: ^4.0.0
+  lints: ^4.0.0
+  test_api: ^0.7.2
 
 flutter:
   uses-material-design: true
