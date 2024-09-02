@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:get/get.dart';
 
@@ -56,14 +56,14 @@ class _RecommendationsResponseScreenState
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CarouselSlider(
+                /* CarouselSlider(
                   options: CarouselOptions(height: 400),
                   items: recommendations.map((recommendation) {
                     return Builder(
                       builder: (BuildContext context) {
                         return Container(
                           width: MediaQuery.of(context).size.width,
-                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          margin: const EdgeInsets.symmetric(horizontal: 5.0),
                           child: Card(
                             elevation: 8.0,
                             shape: RoundedRectangleBorder(
@@ -78,10 +78,10 @@ class _RecommendationsResponseScreenState
                                   height: 250,
                                 ),
                                 Text(recommendation[widget.trackName],
-                                    style: TextStyle(fontSize: 24),
+                                    style: const TextStyle(fontSize: 24),
                                     textAlign: TextAlign.center),
                                 Text(recommendation[widget.artistName],
-                                    style: TextStyle(fontSize: 16),
+                                    style: const TextStyle(fontSize: 16),
                                     textAlign: TextAlign.center),
                                 if (recommendation[widget.audioUrl] != null)
                                   ElevatedButton(
@@ -101,9 +101,9 @@ class _RecommendationsResponseScreenState
                       },
                     );
                   }).toList(),
-                ),
+                ) */
                 IconButton(
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                   onPressed: () {
                     Get.back();
                   },
