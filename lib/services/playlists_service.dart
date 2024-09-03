@@ -5,7 +5,7 @@ class PlaylistService {
   final String apiUrl = 'https://consumify-api.onrender.com';
 
   Future<List<dynamic>> getPlaylistTracks(String idPlaylist) async {
-    final Uri uri = Uri.parse('$apiUrl/$idPlaylist');
+    final Uri uri = Uri.parse('$apiUrl/playlist/playlistTracks/$idPlaylist');
 
     final response = await http.get(uri);
 
