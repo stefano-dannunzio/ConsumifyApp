@@ -10,6 +10,7 @@ export 'package:consumify/screens/api/tracks/recom_by_artist_screen.dart';
 export 'package:consumify/screens/api/response/api_response_screen.dart';
 export 'package:consumify/screens/api/response/recommendations_response_screen.dart';
 export 'package:consumify/screens/api/response/intermediate_response_screen.dart';
+export 'package:consumify/screens/api/response/artist_intermediate_response_screen.dart';
 export 'package:consumify/screens/api/albums/getalbum_screen.dart';
 export 'package:consumify/screens/api/artists/getartistalbum_screen.dart';
 export 'package:consumify/screens/api/playlists/playlists_screen.dart';

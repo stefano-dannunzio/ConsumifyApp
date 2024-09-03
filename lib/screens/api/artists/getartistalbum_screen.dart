@@ -7,46 +7,47 @@ class GetArtistAlbumsScreen extends StatefulWidget {
   const GetArtistAlbumsScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _GetArtistAlbumsScreenState createState() => _GetArtistAlbumsScreenState();
 }
 
 class _GetArtistAlbumsScreenState extends State<GetArtistAlbumsScreen> {
-  final _formkey = GlobalKey<FormState>();
-  String idArtista = '';
+  final _formKey = GlobalKey<FormState>();
+  String _id = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Get Artist Albums'),
+      appBar: AppBar(
+        title: const Text('Get Artist Albums'),
+      ),
+      body: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            TextFormField(
+              decoration: const InputDecoration(labelText: 'Artist_id'),
+              onSaved: (value) => _id = value!,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
+                  // Here you can make the request to the API
+                  final future = ArtistService().getArtistAlbum(_id);
+                  Get.to(ArtistIntermediateResponseScreen(
+                    future: future,
+                    titulo: 'nombreAlbum',
+                    artista: 'nombreArtista',
+                    image: 'imagenAlbum',
+                    id: 'idAlbum',
+                  ));
+                }
+              },
+              child: const Text('Send'),
+            ),
+          ],
         ),
-        body: Form(
-          key: _formkey,
-          child: Column(
-            children: [
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Artist ID',
-                ),
-                onSaved: (value) => idArtista = value!,
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  if (_formkey.currentState!.validate()) {
-                    _formkey.currentState!.save();
-                    final future = ArtistService().getArtistAlbum(idArtista);
-                    Get.to(ApiResponseScreen(
-                      future: future,
-                      titulo: 'nombreAlbum',
-                      artista: 'nombreArtista',
-                    ));
-                  }
-                },
-                child: const Text('Get Artist Albums'),
-              ),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
