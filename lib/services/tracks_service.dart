@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class TracksService {
-  final String apiUrl = 'http://consumify-api.onrender.com';
+  final String apiUrl = 'https://consumify-api.onrender.com';
 
   Future<List<dynamic>> getRecommendations(
       String seedGenres, String seedArtists) async {

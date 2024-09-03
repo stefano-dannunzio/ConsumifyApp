@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ArtistService {
-  final String apiUrl = 'http://consumify-api.onrender.com';
+  final String apiUrl = 'https://consumify-api.onrender.com';
   String ayudin = '';
 
   Future<List<dynamic>> getArtistAlbum(String id) async {
