@@ -2,11 +2,6 @@
 
 Consumify is a music application created with Flutter.
 
-## Features
-
-- Song List: Displays a list of songs that can be played.
-- Artists: Displays a list of artists and allows filtering songs by artist.
-
 ## How to use
 
 1. Clone the repository.
