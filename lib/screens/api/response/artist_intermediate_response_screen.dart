@@ -63,7 +63,6 @@ class _ArtistIntermediateResponseScreenState
                       ),
                       title: Text(snapshot.data![index][widget.titulo]),
                       subtitle: Text(snapshot.data![index][widget.artista]),
-                      // Add more fields as necessary
                     ),
                   ),
                 );

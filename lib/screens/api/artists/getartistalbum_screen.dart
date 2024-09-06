@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class GetArtistAlbumsScreen extends StatefulWidget {
-  final String? artistId; // El ID puede ser nulo ahora
+  final String? artistId;
 
-  const GetArtistAlbumsScreen({super.key, this.artistId}); // El ID es opcional
+  const GetArtistAlbumsScreen({super.key, this.artistId});
 
   @override
   _GetArtistAlbumsScreenState createState() => _GetArtistAlbumsScreenState();
@@ -14,13 +14,11 @@ class GetArtistAlbumsScreen extends StatefulWidget {
 
 class _GetArtistAlbumsScreenState extends State<GetArtistAlbumsScreen> {
   final _formKey = GlobalKey<FormState>();
-  String _id =
-      ''; // Mantendremos esta variable por si el usuario quiere ingresarlo manualmente
+  String _id = '';
 
   @override
   void initState() {
     super.initState();
-    // Si el ID fue pasado, lo asignamos
     if (widget.artistId != null) {
       _id = widget.artistId!;
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -53,15 +51,13 @@ class _GetArtistAlbumsScreenState extends State<GetArtistAlbumsScreen> {
                 children: [
                   TextFormField(
                     decoration: const InputDecoration(labelText: 'Artist ID'),
-                    initialValue:
-                        _id, // Si el usuario quiere ingresar manualmente
+                    initialValue: _id,
                     onSaved: (value) => _id = value!,
                     validator: (value) =>
                         value!.isEmpty ? 'Please enter an ID' : null,
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // Validamos si el ID no se pasó antes
                       if (_id.isEmpty && widget.artistId == null) {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
@@ -79,6 +75,4 @@ class _GetArtistAlbumsScreenState extends State<GetArtistAlbumsScreen> {
           : const Center(child: CircularProgressIndicator()),
     );
   }
-
-  var future = Null;
 }
