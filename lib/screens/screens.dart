@@ -15,3 +15,4 @@ export 'package:consumify/screens/api/albums/getalbum_screen.dart';
 export 'package:consumify/screens/api/artists/getartistalbum_screen.dart';
 export 'package:consumify/screens/api/playlists/playlists_screen.dart';
 export 'package:consumify/screens/api/playlists/playlists_artist_screen.dart';
+export 'package:consumify/screens/api/artists/getartist_screen.dart';

@@ -79,6 +79,13 @@ class _ApiTestingScreenState extends State<ApiTestingScreen> {
                 Get.to(const GetArtistAlbumsScreen());
               },
             ),
+            ListTile(
+              title: const Text('getArtist'),
+              onTap: () {
+                _scaffoldKey.currentState!.openEndDrawer();
+                Get.to(const GetArtistScreen());
+              },
+            ),
 
             // Agrega más ListTiles para otros métodos de la API
           ],
